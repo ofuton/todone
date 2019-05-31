@@ -1,0 +1,33 @@
+#!/usr/bin/env node
+
+const fs = require('fs');
+const path = require('path');
+const manifest = require('../manifest');
+const JSZip = require('jszip');
+
+const resources = () => {
+  return [
+    'manifest.json',
+  ].concat(
+    manifest.content_scripts.map(cs => cs.js).reduce((a1, a2) => a1.concat(a2), []),
+    manifest.web_accessible_resources,
+  ).sort();
+};
+
+const output = `${manifest.name}-${manifest.version}.zip`
+
+let basedir = path.join(__dirname, '..');
+let zip = new JSZip();
+
+for (let r of resources()) {
+  console.log(`  adding: ${r}`)
+  let data = fs.readFileSync(path.join(basedir, r));
+  zip.file(r, data);
+}
+
+zip
+  .generateNodeStream({ type: 'nodebuffer', streamFiles: true })
+  .pipe(fs.createWriteStream(output))
+  .on('finish', function () {
+    console.log(`${output} created`);
+  });

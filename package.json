@@ -1,0 +1,29 @@
+{
+    "name": "todone",
+    "version": "0.0.1",
+    "description": "Awesome KANBAN extension for kintone.",
+    "dependencies": {},
+    "devDependencies": {
+        "jszip": "^3.2.1",
+        "typescript": "^3.4.5",
+        "webpack": "^4.30.0",
+        "webpack-cli": "^3.3.1"
+    },
+    "scripts": {
+        "dev": "webpack --mode development -w --debug --devtool inline-source-map",
+        "build": "NODE_ENV=production webpack --mode production --progress --display-error-details",
+        "package": "npm run build && script/package",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+http://github.com/ofuton/todone.git"
+    },
+    "keywords": [
+        "extension",
+        "kintone",
+        "KANBAN"
+    ],
+    "author": "emiksk <emiksk0910@gmail.com> (https://github.com/emiksk/)",
+    "license": "MIT"
+}

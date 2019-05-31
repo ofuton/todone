@@ -1,0 +1,18 @@
+{
+    "name": "todone",
+    "version": "0.0.1",
+    "description": "Awesome KANBAN extension for kintone.",
+    "manifest_version": 2,
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "content_scripts": [
+        {
+            "matches": [
+                "https://*.cybozu.com/k/*",
+                "https://*.cybozu-dev.com/k/*",
+                "https://*.kintone.com/*"
+            ],
+            "js": [ "dist/js/content.js" ]
+        }
+    ],
+    "web_accessible_resources": []
+}
