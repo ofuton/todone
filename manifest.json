@@ -14,5 +14,7 @@
             "js": [ "dist/js/content.js" ]
         }
     ],
-    "web_accessible_resources": []
+    "web_accessible_resources": [
+        "dist/js/inject.js"
+    ]
 }

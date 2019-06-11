@@ -4,6 +4,7 @@
     "description": "Awesome KANBAN extension for kintone.",
     "dependencies": {},
     "devDependencies": {
+        "@types/chrome": "0.0.86",
         "jszip": "^3.2.1",
         "ts-loader": "^6.0.1",
         "typescript": "^3.4.5",

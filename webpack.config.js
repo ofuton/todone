@@ -6,6 +6,7 @@ const dist = path.resolve(__dirname, 'dist', 'js');
 config = {
     entry: {
         content: path.join(src, 'content'),
+        inject: path.join(src, 'inject'),
     },
 
     module: {
