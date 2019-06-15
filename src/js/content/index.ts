@@ -1,16 +1,14 @@
-const scripts = chrome.runtime.getManifest().web_accessible_resources;
+import {extractScripts} from 'content/utils';
 
-const next = () => {
-  const script = scripts.shift();
+const resources = chrome.runtime.getManifest().web_accessible_resources;
+const scripts = extractScripts(resources);
 
-  if (!script) {
-    return;
-  }
-
-  const s = document.createElement("script");
-  s.setAttribute("src", chrome.extension.getURL(script));
-  s.addEventListener("load", next);
-  document.documentElement.appendChild(s);
+const init = () => {
+    scripts.forEach((script) => {
+        const s = document.createElement("script");
+        s.setAttribute("src", chrome.extension.getURL(script));
+        document.documentElement.appendChild(s);
+    });
 };
 
-next();
+init();
