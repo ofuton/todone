@@ -3,3 +3,4 @@ dist/
 *.zip
 src/js/templates/*.pjs
 .DS_Store
+.idea
